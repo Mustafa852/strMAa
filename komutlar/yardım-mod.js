@@ -16,6 +16,7 @@ const mhelp = new Discord.RichEmbed()
 .addField("<a:ayars:731479176904704060> yavaşmod <0-180 Arası Süre>", "» Yavaş Modu Açar!")
 .addField("<a:ayars:731479176904704060> sa-as <aç-kapat>", "» Sa-As Sistemini Aktif Eder!")
 .addField("<a:ayars:731479176904704060> unmute <member>" , "» Unmutes a member")
+.addField("<a:ayars:731479176904704060> süreliban <@kullanıcı> <süre>" , "» Unmutes a member")
 .addField("<a:ayars:731479176904704060> kullanıcıdetay <@kullanıcı>" , "» Kullanıcı Detaylarını Gösterir!")
 .addField("<a:ayars:731479176904704060> uyar <@kullanıcı> <sebep>" , `» Kullanıcıyı Uyarır!
 
