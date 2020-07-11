@@ -24,7 +24,7 @@ ${emojiList}
   .setTitle(`Emoji Sayısı: [${message.guild.emojis.size}]`)
   .setColor(0x36393E)
      .addField('Emojiler:', `${message.guild.emojis.map(e => e.toString()).join('**  -  **')}`, true)
-.setFooter('Emojileri IDleri ile birlikte görmek için; -emojiler id.')
+.setFooter('Emojileri IDleri ile birlikte görmek için; /emojiler id.')
 
       message.channel.send(embed);
  

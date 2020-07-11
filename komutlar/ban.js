@@ -12,8 +12,6 @@ exports.run = (client, message, args) => {
   let guild = message.guild
   let reason = args.slice(1).join(' ');
   let user = message.mentions.users.first();
-  let modlog = guild.channels.find('name', '［📁］mod-log');
-  if (!modlog) return message.reply('`mod-log` kanalını bulamıyorum.');
   if (reason.length < 1) return message.reply('Ban sebebini yazmalısın.');
   if (message.mentions.users.size < 1) return message.reply('Kimi banlayacağını yazmalısın.').catch(console.error);
 
@@ -27,7 +25,7 @@ exports.run = (client, message, args) => {
     .addField('Banlanan :', `**${user.username}#${user.discriminator} (${user.id})**`)
     .addField('Banlayan :', `**${message.author.username}#${message.author.discriminator}**`)
     .addField('Sebep', reason);
-  return guild.channels.get(modlog.id).sendEmbed(embed);
+  return message.channel.send(embed)
 };
 
 exports.conf = {
