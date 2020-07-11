@@ -7,22 +7,9 @@ module.exports.run = async (client, message, args) => {
     let yazi = args.slice(0).join(' ')
     if (!yazi) return message.channel.send('Lütfen Oylamada Ne Olacağını Yaz!')
     message.channel.send(`Oylama gönderildi.`)
-   let filtre = mes => mes.author.id === message.author.id;    
-  message.channel.awaitMessages(filtre, {
-          max: 1,
-          time: 20000,
-          errors: ["time"]
-        })
-     
-   s.edit('🎰 | Kumar oynanıyor..!').then(codeming => {
-     
-  setTimeout(() => {
-    
-  s.edit('🎰 | Zarlar atılıyor..!')  
-    
     const embed = new Discord.RichEmbed()
     .setColor("BLACK")
-    .addField('Heey , Oylamaya Katılmayı Unutma!',`**${yazi}**`)
+    .addField('Oylamaya Katılmayı Unutma!',`**${yazi}**`)
     .setFooter(`${message.author.tag} Tarafından Yapıldı.`)
     .setTimestamp()
      client.channels.get('722069375544459344').send(embed).then(m => {
