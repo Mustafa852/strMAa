@@ -3,9 +3,9 @@ const Discord = require ("discord.js");
 exports.run = (client, message) => {
 const mhelp = new Discord.RichEmbed()
 .setColor("#5ab1bb")
-.setTitle("Upper Yardım Sistemi")
+.setTitle("Upper Moderasyon Sistemi")
 .setThumbnail("https://cdn.discordapp.com/attachments/718563633009000531/731473630323671080/upper_bots.jpg")
-.addField("/moderasyon [@kullanıcı] (sebep)", "Kullanıcıyı Sunucunuzdan Yasaklar!")
+.addField("/ban [@kullanıcı] (sebep)", "Kullanıcıyı Sunucunuzdan Yasaklar!")
 .addField("/sil-üye [@kullanıcı] (1-100 Arası Sayı)", "İstediğiniz Kullanıcının Mesajını Siler!")
 .addField("/modlog [#kanal]" , "Mod Log Kanalını Ayarlarsınız!")
 .addField("/kick [@kullanıcı] (sebep)", "Kullanıcıyı Sunucudan Atar!")
@@ -29,7 +29,7 @@ exports.conf = {
   };
  
   exports.help = {
-    name: 'yardım', 
+    name: 'moderasyon', 
     description: 'MEE6 HELP MENU',
     usage: 'help'
   };
