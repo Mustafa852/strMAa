@@ -4,7 +4,7 @@ exports.run = (client, message) => {
 
 
 let sunucu = new Discord.RichEmbed()
-.setAuthor('Sunucu Bilgi', message.guild.iconURL)
+.setAuthor('Sunucu Hakkında', message.guild.iconURL)
 .setThumbnail(message.guild.iconURL)
 .addField('Sunucu İsmi', message.guild.name)
 .addField('Sunucu İdsi', message.guild.id)
@@ -16,7 +16,7 @@ let sunucu = new Discord.RichEmbed()
 .addField('AFK zaman aşımı:', message.guild.afkTimeout, true)
 .addField('Oluşturma tarihi:', message.guild.createdAt, true)
 .setTimestamp()
-.setFooter('Sunucu Bilgi', message.guild.iconURL)
+.setFooter('Sunucu Detay', message.guild.iconURL)
 return message.channel.send(sunucu)
 
 }; 
@@ -29,7 +29,7 @@ guildOnly: true
 };
 
 module.exports.help = {
-    name: 'sunucubilgi',
+    name: 'sunucudetay',
     description: '',
     usage: 'sunucubilgi'
 };
