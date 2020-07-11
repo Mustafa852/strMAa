@@ -1,35 +1,95 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
+const moment = require("moment");
+const ayarlar = require("../ayarlar.json");
 
-exports.run = (client, message) => {
-
-
-let sunucu = new Discord.RichEmbed()
-.setAuthor('Sunucu Hakkında', message.guild.iconURL)
-.setThumbnail(message.guild.iconURL)
-.addField('Sunucu İsmi', message.guild.name)
-.addField('Sunucu İdsi', message.guild.id)
-.addField('Sunucu Bölgesi', message.guild.region)
-.addField(`Üyeler ${message.guild.memberCount}`, `Çevrimiçi : ${message.guild.members.filter(m => m.user.presence.status === "online").size}\n Rahatsız Etmeyin: ${message.guild.members.filter(m => m.user.presence.status === 'dnd').size} \n Boşta: ${message.guild.members.filter(m => m.user.presence.status === 'idle').size} \n Çevrimdışı: ${message.guild.members.filter(m => m.user.presence.status === 'offline').size}`)
-.addField(`Kanallar ${message.guild.memberCount}`, ` Yazı: ${message.guild.channels.filter(c => c.type === 'text').size} \n Sesli: ${message.guild.channels.filter(c => c.type === 'voice').size} \n Kategori: ${message.guild.channels.filter(c => c.type === 'category').size}`)
-.addField('Roller:', message.guild.roles.map(role => role.name).join(', '), true)
-.addField('AFK kanalı:', `${message.guild.afkChannel}`, true)
-.addField('AFK zaman aşımı:', message.guild.afkTimeout, true)
-.addField('Oluşturma tarihi:', message.guild.createdAt, true)
-.setTimestamp()
-.setFooter('Sunucu Detay', message.guild.iconURL)
-return message.channel.send(sunucu)
-
-}; 
-
-module.exports.conf = {
-aliases: [],
-permLevel: 0, 
-enabled: true,
-guildOnly: true
+exports.run = (client, message, params) => {
+  if (!message.guild) {
+    const ozelmesajuyari = new Discord.RichEmbed()
+      .setColor('GRAY')
+      .setTimestamp()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .addField(
+        ":warning: Uyarı :warning:",
+        "`sunucubilgi` Adlı Komutu Özel Mesajlarda Kullanamazsın!"
+      );
+    return message.author.sendEmbed(ozelmesajuyari);
+  }
+  if (message.channel.type !== "dm") {
+  const guild = message.guild.id
+    var tarih = ''
+            if(moment(guild.createdAt).format('MM') === '01') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Ocak ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '02') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Şubat ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '03') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Mart ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '04') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Nisan ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '05') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Mayıs ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '06') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Haziran ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '07') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Temmuz ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '08') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Ağustos ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '09') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Eylül ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '10') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Ekim ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '11') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Kasım ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+            if(moment(guild.createdAt).format('MM') === '12') {
+                var tarih = `${moment(guild.createdAt).format('DD')} Aralık ${moment(guild.createdAt).format('YYYY HH:mm:ss')} `
+            }
+  
+    const sunucubilgi = new Discord.RichEmbed()
+      .setColor("GRAY")
+      .setAuthor(message.guild.name, message.guild.iconURL)
+      .addField("» Sunucu Sahibi", message.guild.owner)
+    .addField("» Sunucu Adı", message.guild.name)
+      .addField("» Sunucu ID", message.guild.id)
+      .addField("» Rol Sayısı", message.guild.roles.size)
+      .addField(
+        "» Kanal Sayısı",
+        message.guild.channels.size
+      )
+      .addField("» Emoji Sayısı", message.guild.emojis.size)
+      .addField("» Sunucu Bölgesi", message.guild.region)
+      .addField("» Üye Sayısı", message.guild.memberCount)
+      .addField(
+        "» AFK Kanalı", message.guild.afkChannel
+      )
+    .addField('» AFK Zaman Aşımı', message.guild.afkTimeout)
+    .addField('» Sistem Mesaj Kanalı ', message.guild.systemChannel)
+      
+      .addField("» Oluşturulma Tarihi", `${tarih}`)
+      .setThumbnail(message.guild.iconURL);
+    return message.channel.sendEmbed(sunucubilgi);
+    message.react("😂");
+  }
 };
 
-module.exports.help = {
-    name: 'sunucudetay',
-    description: '',
-    usage: 'sunucubilgi'
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["sunucu", "sunucu-bilgi", "sbilgi","server","server-bilgi","sbilgi","serverinfo","server-info"],
+  permLevel: 0
+};
+
+exports.help = {
+  name: "sunucudetay",
+  description: "Sunucu hakkında bilgi verir.",
+  usage: "sunucubilgi"
 };
