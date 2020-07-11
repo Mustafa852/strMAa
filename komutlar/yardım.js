@@ -17,7 +17,7 @@ const mhelp = new Discord.RichEmbed()
 .addField("/sa-as (aç-kapat)", "Sa-As Sistemini Aktif Eder!")
 .addField("/unmute [member]" , "Unmutes a member")
 .addField("/kullanıcıdetay [@kullanıcı]" , "Kullanıcı Detaylarını Gösterir!")
-.addField("/uyar [@kullanıcı] (optional reason)" , "Warns a member")
+.addField("/uyar [@kullanıcı] (sebep)" , "Kullanıcıyı Uyarır!")
 message.channel.sendEmbed(mhelp)
 
 }; 
