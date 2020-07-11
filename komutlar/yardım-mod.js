@@ -4,27 +4,27 @@ exports.run = (client, message) => {
 const mhelp = new Discord.RichEmbed()
 .setColor("#5ab1bb")
 .setTitle("Upper Moderasyon Sistemi")
+.setDescription("Prefixim: /")
 .setThumbnail("https://cdn.discordapp.com/attachments/718563633009000531/731477372674768916/unnamed.png")
-.addField("/ban [@kullanıcı] (sebep)", "Kullanıcıyı Sunucunuzdan Yasaklar!")
-.addField("/sil-üye [@kullanıcı] (1-100 Arası Sayı)", "İstediğiniz Kullanıcının Mesajını Siler!")
-.addField("/modlog [#kanal]" , "Mod Log Kanalını Ayarlarsınız!")
-.addField("/kick [@kullanıcı] (sebep)", "Kullanıcıyı Sunucudan Atar!")
-.addField("/mute [@kullanıcı] (sebep)", "Kullanıcıyı Susturur!")
-.addField("/sürelimute [@kullanıcı] [süre] (sebep)" , "Kullanıcıyı Süreli Susturur!")
-.addField("/sunucudetay", "Sunucu Hakkında Detayları Gösterir!")
-.addField("/server-info", "--")
-.addField("/yavaşmod (0-180 Arası Süre) (optional off)", "Yavaş Modu Açar!")
-.addField("/sa-as (aç-kapat)", "Sa-As Sistemini Aktif Eder!")
-.addField("/unmute [member]" , "Unmutes a member")
-.addField("/kullanıcıdetay [@kullanıcı]" , "Kullanıcı Detaylarını Gösterir!")
-.addField("/uyar [@kullanıcı] (sebep)" , "Kullanıcıyı Uyarır!")
+.addField("<a:ayars:731479176904704060> ban [@kullanıcı] (sebep)", "Kullanıcıyı Sunucunuzdan Yasaklar!")
+.addField("<a:ayars:731479176904704060> sil-üye [@kullanıcı] (1-100 Arası Sayı)", "İstediğiniz Kullanıcının Mesajını Siler!")
+.addField("<a:ayars:731479176904704060> modlog [#kanal]" , "Mod Log Kanalını Ayarlarsınız!")
+.addField("<a:ayars:731479176904704060> kick [@kullanıcı] (sebep)", "Kullanıcıyı Sunucudan Atar!")
+.addField("<a:ayars:731479176904704060> mute [@kullanıcı] (sebep)", "Kullanıcıyı Susturur!")
+.addField("<a:ayars:731479176904704060> sürelimute [@kullanıcı] [süre] (sebep)" , "Kullanıcıyı Süreli Susturur!")
+.addField("<a:ayars:731479176904704060> sunucudetay", "Sunucu Hakkında Detayları Gösterir!")
+.addField("<a:ayars:731479176904704060> yavaşmod (0-180 Arası Süre) (optional off)", "Yavaş Modu Açar!")
+.addField("<a:ayars:731479176904704060> sa-as (aç-kapat)", "Sa-As Sistemini Aktif Eder!")
+.addField("<a:ayars:731479176904704060> unmute [member]" , "» Unmutes a member")
+.addField("<a:ayars:731479176904704060> kullanıcıdetay [@kullanıcı]" , "» Kullanıcı Detaylarını Gösterir!")
+.addField("<a:ayars:731479176904704060> uyar [@kullanıcı] (sebep)" , "» Kullanıcıyı Uyarır!")
 message.channel.sendEmbed(mhelp)
 
 }; 
 exports.conf = {
     enabled: true, 
     guildOnly: false, 
-    aliases: ['help'], 
+    aliases: ['mod-help' , 'mod'],
     permLevel: 0 
   };
  

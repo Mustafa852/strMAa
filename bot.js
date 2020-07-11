@@ -551,7 +551,7 @@ let mesaj = db.fetch(`judgemesaj_${member.guild.id}`)
 if(!kanal) return
 member.addRole(rol)
   if(!mesaj) {
-  client.channels.get(kanal).send(':loudspeaker: :inbox_tray: Otomatik Rol Verildi Seninle Beraber **`'+member.guild.memberCount+'`** Kişiyiz! <:evetyav:710511879834828853> Hoşgeldin! **`'+member.user.username+'`**')
+  client.channels.get(kanal).send(':loudspeaker: Otomatik Rol Verildi Seninle Beraber **`'+member.guild.memberCount+'`** Kişiyiz! <a:ruskie:731563381282308188> Hoşgeldin! **`'+member.user.username+'`**')
 } else {
   
       var mesajs = mesaj.replace("-uye-", `${member.author.tag}`).replace("-uyetag-", `${member.author.username}`) .replace("-server-", `${member.guild.name}`).replace("-rol-", member.guild.roles.get(db.fetch(`judgerol_${member.guild.id}`)).name).replace("-onlineuyesayısı-", member.guild.members.filter(s => s.presenceStatus === "online").size).replace("-botsayisi-", member.guild.members.filter(s => s.bot).size) .replace('-kanalsayisi-' ,member.guild.channels.size ).replace("-uyesayisi-", member.guild.memberCount).replace("-bolge-", member.guild.region)
