@@ -4,7 +4,7 @@ exports.run = (client, message) => {
 const mhelp = new Discord.RichEmbed()
 .setColor("#5ab1bb")
 .setTitle("Upper Moderasyon Sistemi")
-.setThumbnail("https://cdn.discordapp.com/attachments/718563633009000531/731473630323671080/upper_bots.jpg")
+.setThumbnail("https://cdn.discordapp.com/attachments/718563633009000531/731477372674768916/unnamed.png")
 .addField("/ban [@kullanıcı] (sebep)", "Kullanıcıyı Sunucunuzdan Yasaklar!")
 .addField("/sil-üye [@kullanıcı] (1-100 Arası Sayı)", "İstediğiniz Kullanıcının Mesajını Siler!")
 .addField("/modlog [#kanal]" , "Mod Log Kanalını Ayarlarsınız!")
