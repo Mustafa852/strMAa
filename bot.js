@@ -668,8 +668,11 @@ client.on("guildMemberRemove", async member => {
 
 //GİRİŞ DETAY
 
-client.on("guildMemberAdd", (member, message) => {
-  if (member.guild.id !== "707632395397890058") return; //SUNUCU İD
+client.on("guildMemberAdd", (user, member, message) => {
+   let gkanal = db.fetch(`ggk_${member.guild.id}`);
+  if (!gkanal) return;
+  const gkanalı = member.guild.channels.find("name", gkanal);
+  if (!gkanalı) return;
   let aylartoplam = {
     "01": "Ocak",
     "02": "Şubat",
@@ -685,11 +688,8 @@ client.on("guildMemberAdd", (member, message) => {
     "12": "Aralık"
   };
   let aylar = aylartoplam;
-  let user = client.users.get(member.id);
   require("moment-duration-format");
   let eskiNick = member.user.username;
-  const id = "722069389561823302"; // MESAJIN GİDECEĞİ KANAL İD
-  const channel = member.guild.channels.get(id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
   const gün = moment.duration(kurulus).format("D");
   var kontrol;
@@ -698,11 +698,14 @@ client.on("guildMemberAdd", (member, message) => {
   const embed = new Discord.RichEmbed()
   .setColor("BLUE")
   .setDescription(`${member} Adlı Kullanıcı Aramıza Katıldı!\n\nBu Kullanıcıyla Birlikte **${member.guild.memberCount}** Kişi Olduk!\n\nKullanıcı İD **${member.user.id}**\n\nKullanıcının Hesap Kuruluş Tarihi **${moment(user.createdAt).format("DD")} ${aylar[moment(user.createdAt).format("MM")]}  ${moment(user.createdAt).format("YYYY HH:mm:ss")}**\n\nBu Kullanıcının Hesabı **${kontrol}**`)
-  channel.send(embed)
+  gkanalı.send(embed)
 });
 
-client.on("guildMemberRemove", (member, message) => {
-  if (member.guild.id !== "707632395397890058") return; //SUNUCU İD
+client.on("guildMemberRemove", (user, member, message) => {
+  let gkanal = db.fetch(`ggk_${member.guild.id}`);
+  if (!gkanal) return;
+  const gkanalı = member.guild.channels.find("name", gkanal);
+  if (!gkanalı) return;
   let aylartoplam = {
     "01": "Ocak",
     "02": "Şubat",
@@ -718,11 +721,9 @@ client.on("guildMemberRemove", (member, message) => {
     "12": "Aralık"
   };
   let aylar = aylartoplam;
-  let user = client.users.get(member.id);
+
   require("moment-duration-format");
   let eskiNick = member.user.username;
-  const id = "722069389561823302"; // MESAJIN GİDECEĞİ KANAL İD
-  const channel = member.guild.channels.get(id);
   const kurulus = new Date().getTime() - user.createdAt.getTime();
   const gün = moment.duration(kurulus).format("D");
   var kontrol;
@@ -731,7 +732,7 @@ client.on("guildMemberRemove", (member, message) => {
   const embed = new Discord.RichEmbed()
   .setColor("BLUE")
   .setDescription(`${member} Adlı Kullanıcı Aramızdan Ayrıldı!\n\nBu Kullanıcının Çıkmasıyla **${member.guild.memberCount}** Kişiye Düştük!\n\nKullanıcı İD **${member.user.id}**\n\nKullanıcının Hesap Kuruluş Tarihi **${moment(user.createdAt).format("DD")} ${aylar[moment(user.createdAt).format("MM")]}  ${moment(user.createdAt).format("YYYY HH:mm:ss")}**\n\nBu Kullanıcının Hesabı **${kontrol}**`)
-  channel.send(embed)
+  gkanalı.send(embed)
 });
 
 //GİRİŞ DETAY SON
