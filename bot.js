@@ -669,9 +669,9 @@ client.on("guildMemberRemove", async member => {
 //GİRİŞ DETAY
 
 client.on("guildMemberAdd", (user, member, message) => {
-   let gkanal = db.fetch(`ggk_${member.guild.id}`);
-  if (!gkanal) return;
-  const gkanalı = member.guild.channels.find("name", gkanal);
+   let gelgit = db.fetch(`ggk_${member.guild.id}`);
+  if (!gelgit) return;
+  const gkanalı = member.guild.channels.find("name", gelgit);
   if (!gkanalı) return;
   let aylartoplam = {
     "01": "Ocak",
