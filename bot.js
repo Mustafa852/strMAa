@@ -668,7 +668,9 @@ client.on("guildMemberRemove", async member => {
 
 //GİRİŞ DETAY
 
-client.on("guildMemberAdd", (user, member, message) => {
+client.on("guildMemberAdd", async (user, member, message => {
+   let kanal = db.fetch(`kanal_${member.guild.id}`);
+    if (!kanal) return;
   let aylartoplam = {
     "01": "Ocak",
     "02": "Şubat",
@@ -694,9 +696,10 @@ client.on("guildMemberAdd", (user, member, message) => {
   const embed = new Discord.RichEmbed()
   .setColor("BLUE")
   .setDescription(`${member} Adlı Kullanıcı Aramıza Katıldı!\n\nBu Kullanıcıyla Birlikte **${member.guild.memberCount}** Kişi Olduk!\n\nKullanıcı İD **${member.user.id}**\n\nKullanıcının Hesap Kuruluş Tarihi **${moment(user.createdAt).format("DD")} ${aylar[moment(user.createdAt).format("MM")]}  ${moment(user.createdAt).format("YYYY HH:mm:ss")}**\n\nBu Kullanıcının Hesabı **${kontrol}**`)
-  embed.send(embed)
-});
+  kanal.send(embed)
 
+});
+  
 client.on("guildMemberRemove", (user, member, message) => {
   let aylartoplam = {
     "01": "Ocak",
