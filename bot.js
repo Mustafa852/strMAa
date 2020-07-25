@@ -137,62 +137,6 @@ client.login(ayarlar.token);
 
 //-----------------------KOMUTLAR-----------------------\\
 
-//-----------------------Sayaç-----------------------\\
-//-----------------------Sayaç-----------------------\\
-//-----------------------Sayaç-----------------------\\
-
-client.on("guildMemberAdd", async member => {
-  let sayac = await db.fetch(`sayac_${member.guild.id}`);
-  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
-  if (!skanal9) return;
-  const skanal31 = member.guild.channels.find("name", skanal9);
-  if (!skanal31) return;
-  skanal31.send(`<a:Cyrus:710518349620314152> <a:ylans:710518316589907998> \`${ member.user.tag }\` Adlı Kullanıcı Sunucuya Katıldı. \`${sayac}\` Kullanıcı Olmaya \`${sayac - member.guild.members.size}\` Kullanıcı Kaldı ! <a:no:710518885320884366>  ` );
-});
-
-client.on("guildMemberRemove", async member => {
-  let sayac = await db.fetch(`sayac_${member.guild.id}`);
-  let skanal9 = await db.fetch(`sayacK_${member.guild.id}`);
-  if (!skanal9) return;
-  const skanal31 = member.guild.channels.find("name", skanal9);
-  if (!skanal31) return;
-  skanal31.send(`<a:Cyrus:710518349620314152> <a:ylans:710518316589907998> \`${  member.user.tag }\`Adlı Kullanıcı Sunucudan Ayrıldı. \`${sayac}\` Kullanıcı Olmaya \`${sayac - member.guild.members.size}\` Kullanıcı Kaldı ! <a:hyr:710518899526860870> `);
-});
-
-//-----------------------Sayaç Son-----------------------\\
-//-----------------------Sayaç Son-----------------------\\
-//-----------------------Sayaç Son-----------------------\\
-
-
-//-----------------------Sa-As-----------------------\\
-//-----------------------Sa-As-----------------------\\
-//-----------------------Sa-As-----------------------\\
-//-----------------------Sa-As-----------------------\\
-
-client.on('message', async (msg, member, guild) => {
-  let i = await  db.fetch(`saas_${msg.guild.id}`)
-      if(i === 'açık') {
-        if (msg.content.toLowerCase() === 'sa'){
-          
-        msg.reply('Aleyküm Selam, Hoşgeldin!');    
-      }
-      }
-    });
-
-client.on('message', async (msg, member, guild) => {
-  let i = await  db.fetch(`saas_${msg.guild.id}`)
-      if(i === 'açık') {
-        if (msg.content.toLowerCase() === 'hi'){
-          
-        msg.reply('Hi welcome!');    
-      }
-      }
-    });
-
-//-----------------------Sa-As Son-----------------------\\
-//-----------------------Sa-As Son-----------------------\\
-//-----------------------Sa-As Son-----------------------\\
-//-----------------------Sa-As Son-----------------------\\
 
 //-----------------------Büyük Harf-----------------------\\
 //-----------------------Büyük Harf-----------------------\\
@@ -224,77 +168,6 @@ client.on('message', async (msg, member, guild) => {
 //-----------------------Büyük Harf Son-----------------------\\
 //-----------------------Büyük Harf Son-----------------------\\
 
-
-//-----------------------Küfür Engel Link Engel-----------------------\\
-//-----------------------Küfür Engel Link Engel-----------------------\\
-//-----------------------Küfür Engel Link Engel-----------------------\\
-//-----------------------Küfür Engel Link Engel-----------------------\\
-
-client.on("message", async msg => {
-    if(msg.author.bot) return;
-    if(msg.channel.type === "dm") return;
-        
-    let i = await db.fetch(`reklamFiltre_${msg.guild.id}`) 
-          if (i == 'acik') {
-              const reklam = ["discord.app", "discord.gg", "invite","discordapp","discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az",];
-              if (reklam.some(word => msg.content.toLowerCase().includes(word))) {
-                try {
-                  if (!msg.member.hasPermission("ADMINISTRATOR")) {
-                    msg.delete();                   
-                    let embed = new Discord.RichEmbed()
-                    .setColor(0xffa300)
-                    .setFooter('Reklam engellendi.', client.user.avatarURL)
-                    .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
-                    .setDescription("Reklam sistemi, " + `***${msg.guild.name}***` + " adlı sunucunuzda reklam yakaladım.")
-                    .addField('Reklamı yapan kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
-                    .addField('Engellenen mesaj', msg.content, true)
-                    .setTimestamp()                   
-                    msg.guild.owner.user.send(embed)                       
-                    return msg.channel.send(`${msg.author.tag}, Reklam Yapmak Yasak Bunu Biliyorsun.`).then(msg => msg.delete(25000));
-                  }             
-                } catch(err) {
-                  console.log(err);
-                }
-              }
-          }
-          if (!i) return;
-  });
-
-client.on("message", async msg => {
-    if(msg.author.bot) return;
-    if(msg.channel.type === "dm") return;
-        
-    let i = await db.fetch(`küfürFiltre_${msg.guild.id}`)  
-          if (i == 'acik') {
-              const küfür = ["amcık","sik","am", "yarrak", "orospu","piç", "sikerim", "sikik", "amına", "pezevenk", "yavşak", "ananı", "anandır", "orospu", "evladı", "göt", "pipi", "sokuk", "yarak", "bacını", "karını",];
-              if (küfür.some(word => msg.content.toLowerCase().includes(word))) {
-                try {
-                  if (!msg.member.hasPermission("MANAGE_WEBHOOKS")) {
-                    msg.delete();                    
-                    let embed = new Discord.RichEmbed()
-                    .setColor(0xffa300)
-                    .setFooter('Küfür Sistemi', client.user.avatarURL)
-                    .setAuthor(msg.guild.owner.user.username, msg.guild.owner.user.avatarURL)
-                    .setDescription("Bot, " + `***${msg.guild.name}***` + " adlı sunucunuzda küfür yakaladım.")
-                    .addField('Küfür Eden Kişi', 'Kullanıcı: '+ msg.author.tag +'\nID: '+ msg.author.id, true)
-                    .addField('Engellenen mesaj', msg.content, true)
-                    .setTimestamp()                   
-                    msg.guild.owner.user.send(embed)                       
-                    return msg.channel.send(`${msg.author}, Küfür Etmek Yasak! Senin Mesajını Özelden Kurucumuza Gönderdim.`).then(msg => msg.delete(25000));
-                  }              
-                } catch(err) {
-                  console.log(err);
-                }
-              }
-          }
-          if (!i) return;
-          });   
-
-
-//-----------------------Küfür Engel Link Engel Son-----------------------\\
-//-----------------------Küfür Engel Link Engel Son-----------------------\\
-//-----------------------Küfür Engel Link Engel Son-----------------------\\
-//-----------------------Küfür Engel Link Engel Son-----------------------\\
 
 
 //-----------------------Modlog-----------------------\\
@@ -539,128 +412,136 @@ client.on("channelDelete", async channel => {
 
 //--------------------ROL KORUMA SON-----------------\\
 
+//--------------REKLAM SİSTEMİ------------------\\
 
-//------------------OTOROL ---------------------------\\
+client.on("message", async message => {
+  let kişiuyari = await db.fetch(  `uyarisayisi_${message.author.id}${message.guild.id}`);
+  let sınır = await db.fetch(`reklamsınır_${message.guild.id}`);
+  let reklambanayar = await db.fetch(`reklambanayar_${message.guild.id}`);
+  let kullanici = message.member;
+  const reklambankelimeler = [
+    "discord.app",
+    "discord.gg",
+    "invite",
+    "discordapp",
+    "discordgg"
+  ];
+  if (reklambanayar == "kapali") return;
+  if (reklambanayar == "acik") {
+    if (
+      reklambankelimeler.some(word =>
+        message.content.toLowerCase().includes(word)
+      )
+    ) {
+      if (!message.member.hasPermission("ADMINISTRATOR")) {
+        message.delete();
+        db.add(`uyarisayisi_${message.author.id}${message.guild.id}`, 1);
+        let reklambanuyari = new Discord.RichEmbed()
+          .addField(
+            `Reklam Ban Sistemi Tarafından Discord Reklamı Engellendi :thumbsup:`,
+            `Sunucu Reklamını Atan Kişi: **${message.author.tag}**\nUyarı Sayısı: **${kişiuyari}/${sınır}**`
+          )
+          .setTimestamp()
+          .setFooter(`${client.user.username}`, client.user.avatarURL);
+        message.channel
+          .send(reklambanuyari)
+          .then(message => message.delete(10000));
+        if (kişiuyari == sınır) {
+          message.delete();
+          kullanici.ban({
+            reason: `${client.user.username} Reklam Oto Ban Sistemi`
+          });
+          db.set(`uyarisayisi_${message.author.id}${message.guild.id}`, 1);
+          let yeteramkreklamban = new Discord.RichEmbed()
+            .addField(
+              `Reklam Ban Sistemi Reklam Yapan Kişiyi Banladı :white_check_mark:`,
+              `Reklamdan Banlanan Kişi: **${kullanici}**`
+            )
+            .setTimestamp(new Date())
+            .setFooter(
+              `${client.user.username} Blocker`,
+              client.user.avatarURL
+            );
+          message.channel.send(yeteramkreklamban);
+        }
+      }
+    }
+  }
+});
 
-client.on("guildMemberAdd", async member => {
-  
- let kanal = db.fetch(`judgekanal_${member.guild.id}`)   
- let rol = db.fetch(`judgerol_${member.guild.id}`)
-let mesaj = db.fetch(`judgemesaj_${member.guild.id}`)
-  
-if(!kanal) return
-member.addRole(rol)
-  if(!mesaj) {
-  client.channels.get(kanal).send(':loudspeaker: Otomatik Rol Verildi Seninle Beraber **`'+member.guild.memberCount+'`** Kişiyiz! <a:ruskie:731563381282308188> Hoşgeldin! **`'+member.user.username+'`**')
-} else {
-  
-      var mesajs = mesaj.replace("-uye-", `${member.author.tag}`).replace("-uyetag-", `${member.author.username}`) .replace("-server-", `${member.guild.name}`).replace("-rol-", member.guild.roles.get(db.fetch(`judgerol_${member.guild.id}`)).name).replace("-onlineuyesayısı-", member.guild.members.filter(s => s.presenceStatus === "online").size).replace("-botsayisi-", member.guild.members.filter(s => s.bot).size) .replace('-kanalsayisi-' ,member.guild.channels.size ).replace("-uyesayisi-", member.guild.memberCount).replace("-bolge-", member.guild.region)
-  
-  client.channels.get(kanal).send(mesajs)
+client.on('message', async message => {
+let aktif = await db.fetch(`reklamEngelcodeshare_${message.channel.id}`)
+if (!aktif) return 
+let reklamlar = ["discord.app", "discord.gg" ,"discordapp","discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", ".cf", ".me", ".in"]
+let kelimeler = message.content.slice(" ").split(/ +/g)
+if (reklamlar.some(word => message.content.toLowerCase().includes(word))) {
+if (message.member.hasPermission("BAN_MEMBERS")) return;
+message.delete()
+message.reply('Reklamları engelliyorum!').then(msg => msg.delete(7000)) 
 }
-
-
 });
-//-------------OTOROL SON------------------\\
+//CodeShare
+client.on("messageUpdate", async (oldMsg, newMsg) => {
+let aktif = await db.fetch(`reklamEngelcodeshare_${oldMsg.channel.id}`)
+if(!aktif) return
+let reklamlar = ["discord.app", "discord.gg","discordapp","discordgg", ".com", ".net", ".xyz", ".tk", ".pw", ".io", ".me", ".gg", "www.", "https", "http", ".gl", ".org", ".com.tr", ".biz", ".party", ".rf.gd", ".az", ".cf", ".me", ".in"]
+let kelimeler = newMsg.content.slice(" ").split(/ +/g)
+if (reklamlar.some(word => newMsg.content.toLowerCase().includes(word))) {
+if (newMsg.member.hasPermission("BAN_MEMBERS")) return;
+newMsg.delete()
+oldMsg.reply('Reklamları engelliyorum!').then(msg => msg.delete(7000)) 
+}
+});
 
-//-----------SUNUCU PANEL-----------\\
+//--------------REKLAM SİSTEMİ------------------\\
+
+//--------------Fake Hesap Ceza-----------------\\
+
+client.on("guildMemberAdd", member => {
+  var moment = require("moment")
+  require("moment-duration-format")
+  moment.locale("tr")
+   var {Permissions} = require('discord.js');
+   var x = moment(member.user.createdAt).add(3, 'days').fromNow()
+   var user = member.user
+   x = x.replace("birkaç saniye önce", " ")
+   if(!x.includes("önce") || x.includes("sonra") ||x == " ") {
+   var rol = member.guild.roles.get("718883972570152982") //Cezalı Rol İD
+   var kayıtsız = member.guild.roles.get("716365827049259029") //Alınacak Rol İD (eğer alınacak rol yoksa yani sunucuya girenlere otorol vs vermiyorsanız burayı silin gitsin)
+   member.addRole(rol)
+member.user.send('Hesabın 3 günden önce açıldığı için cezalıya atıldın! Açtırmak İçin Yetkililere Bildir.')
+setTimeout(() => {
+        member.removeRole(kayıtsız.id);
+}, 1000)
+   }
+        else {
+        }  
+    });
+
+//--------------Fake Hesap Ceza-----------------\\
+
+//--------------Anti Raid Sistemi---------------\\
 
 client.on("guildMemberAdd", async member => {
-  let sunucupaneli = await db.fetch(`sunucupanel_${member.guild.id}`);
-  if (sunucupaneli) {
-    let toplamuye = member.guild.channels.find(x =>
-      x.name.startsWith("Toplam Üye •")
-    );
-    let toplamaktif = member.guild.channels.find(x =>
-      x.name.startsWith("Aktif Üye •")
-    );
-    let botlar = member.guild.channels.find(x => x.name.startsWith("Botlar •"));
-    let rekoraktif = member.guild.channels.find(x =>
-      x.name.startsWith("Rekor Aktiflik •")
-    );
-
-    if (
-      member.guild.members.filter(off => off.presence.status !== "offline")
-        .size > sunucupaneli
-    ) {
-      await db.set(
-        `sunucupanel_${member.guild.id}`,
-        member.guild.members.filter(off => off.presence.status !== "offline")
-          .size
-      );
-    }
-    try {
-      if (toplamuye) {
-        toplamuye.setName(`Toplam Üye • ${member.guild.memberCount}`);
-      }
-      if (toplamaktif) {
-        toplamaktif.setName(
-          `Aktif Üye • ${
-            member.guild.members.filter(
-              off => off.presence.status !== "offline"
-            ).size
-          }`
-        );
-      }
-      if (botlar) {
-        botlar.setName(
-          `Botlar • ${member.guild.members.filter(m => m.user.bot).size}`
-        );
-      }
-      if (rekoraktif) {
-        rekoraktif.setName(`Rekor Aktiflik • ${sunucupaneli}`);
-      }
-    } catch (e) {}
-  }
-});
-//Yashinu (Akame Owner)
-client.on("guildMemberRemove", async member => {
-  let sunucupaneli = await db.fetch(`sunucupanel_${member.guild.id}`);
-  if (sunucupaneli) {
-    let toplamuye = member.guild.channels.find(x =>
-      x.name.startsWith("Toplam Üye •")
-    );
-    let toplamaktif = member.guild.channels.find(x =>
-      x.name.startsWith("Aktif Üye •")
-    );
-    let botlar = member.guild.channels.find(x => x.name.startsWith("Botlar •"));
-    let rekoraktif = member.guild.channels.find(x =>
-      x.name.startsWith("Rekor Aktiflik •")
-    );
-
-    if (
-      member.guild.members.filter(off => off.presence.status !== "offline")
-        .size > sunucupaneli
-    ) {
-      await db.set(
-        `sunucupanel_${member.guild.id}`,
-        member.guild.members.filter(off => off.presence.status !== "offline")
-          .size
-      );
-    }
-    try {
-      if (toplamuye) {
-        toplamuye.setName(`Toplam Üye • ${member.guild.memberCount}`);
-      }
-      if (toplamaktif) {
-        toplamaktif.setName(
-          `Aktif Üye • ${
-            member.guild.members.filter(
-              off => off.presence.status !== "offline"
-            ).size
-          }`
-        );
-      }
-      if (botlar) {
-        botlar.setName(
-          `Botlar • ${member.guild.members.filter(m => m.user.bot).size}`
-        );
-      }
-      if (rekoraktif) {
-        rekoraktif.setName(`Rekor Aktiflik • ${sunucupaneli}`);
-      }
-    } catch (e) {}
+let kanal = await db.fetch(`antiraidK_${member.guild.id}`)== "anti-raid-aç"
+  if (!kanal) return;  
+  var darknesyt = member.guild.owner
+  if (member.user.bot === true) {
+     if (db.fetch(`botizin_${member.guild.id}.${member.id}`) == "aktif") {
+    let darknesguardv2 = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setThumbnail(member.user.avatarURL)
+      .setDescription(`**${member.user.tag}** (${member.id}) adlı bota bir yetkili izin verdi eğer kaldırmak istiyorsanız **${prefix}bot-izni kaldır botun_id**.`);
+    darknesyt.send(darknesguardv2);
+     } else {
+       let izinverilmemişbot = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setThumbnail(member.user.avatarURL)
+      .setDescription("**" + member.user.tag +"**" + " (" + member.id+ ") " + "adlı bot sunucuya eklendi ve banladım eğer izin vermek istiyorsanız **" + prefix + "bot-izni ver botun_id**")
+       member.ban();// Eğer sunucudan atmak istiyorsanız ban kısmını kick yapın
+       darknesyt.send(izinverilmemişbot)
+}
   }
 });
 
-//-------SUNUCU PANEL SON-----------\\
+//--------------Anti Raid Sistemi---------------\\

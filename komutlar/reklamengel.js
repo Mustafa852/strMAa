@@ -1,38 +1,34 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
-
-exports.run = async(client, message, args) => {
-
-  if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(` Bu komudu kullanabilmek için "ADMINISTRATOR" yetkisine sahip olman gerek.`)
-  if (!args[0]) return message.channel.send(`:no_entry: Reklam Filtresini Ayarlamak İçin \`-reklam aç\` | Kapatmak İstiyorsanız \`-reklam kapat\` Yazabilirsiniz`)
-  if (args[0] !== 'aç' && args[0] !== 'kapat') return message.channel.send(`:no_entry: Reklam Filtresini Ayarlamak İçin \`-reklam aç\` | Kapatmak İstiyorsanız \`-reklam  kapat\` Yazabilirsiniz`)
-
-    if (args[0] == 'aç') {
-    db.set(`reklamFiltre_${message.guild.id}`, 'acik')
-    let i = await db.fetch(`reklamFiltre_${message.guild.id}`)
-  message.channel.send(`Reklam Filtresi başarıyla ayarlandı`)   
-    
-  }
-
-  if (args[0] == 'kapat') {
-      
-    db.delete(`reklamFiltre_${message.guild.id}`)
-    
-    message.channel.send(`Reklam Filtresini Kapattım`)
-  }
+exports.run = async (client, message, args) => {
+const code = message.mentions.channels.first() || message.channel
+const codeshare = args[0]
+if (!codeshare) return message.reply(`Reklam engel sistemini açmak için reklamengel aç #kanal veya reklamengel aç yazmalsın!`)
  
+  if (codeshare == 'aç') { 
+  let açıkkapalı = await db.fetch(`reklamEngelcodeshare_${code.id}`)
+  if(açıkkapalı) return message.reply(`Zaten reklam engel bu kanalda/belirttiğiniz kanalda aktif!`)
+    
+db.set(`reklamEngelcodeshare_${code.id}`,'açık')
+message.reply(`Reklam engel sistemi başarıyla bu kanalda/belirttiğiniz kanalda aktif edildi!`)
+  }
+  
+  if (codeshare == 'kapat') {
+  let açıkkapalı = await db.fetch(`reklamEngelcodeshare_${code.id}`)
+  if(!açıkkapalı) return message.reply(`Zaten Reklam engel bu kanalda/belirttiğiniz kanalda deaktif!`)
+    
+db.delete(`reklamEngelcodeshare_${code.id}`)
+message.reply(`Reklam engel sistemi başarıyla bu kanalda/belirttiğiniz kanalda deaktif edildi!`)
+}
 };
-
-
 exports.conf = {
- enabled: true,
- guildOnly: false,
-  aliases: ['link-engel'],
- permLevel: 0
+  enabled: false,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 3
 };
-
 exports.help = {
- name: 'reklam',
- description: 'reklamm',
- usage: 's$$kanal'
-};
+  name: 'reklam-engel',
+  description: 'reklam engellemeyi açar',
+  usage: 'CodeShare'
+}
