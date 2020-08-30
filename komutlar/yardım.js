@@ -10,6 +10,7 @@ module.exports.run = async (client, message, args) => {
     .setFooter(`Sayfa ${sayfa} - ${sayfalar.length}`)
     .setDescription(sayfalar[sayfa-1])
   .setDescription('**Komutlar Hangi Sayfada?**\n2.Sayfa = Anti Raid Sistemi\n3.Sayfa = Engel ve Tarama Sistemi\n4.Sayfa = Koruma Sistemi\n5.Sayfa = Yetkili Sistemi\n\nSonraki Sayfa = ➡\nÖnceki Sayfa = ⬅')
+  .addField('Dikkat',`Bu Altyapı Winvon Youtube Kanalının Sahibi Baran Tarafından Yapılmıştır, İzinsiz Paylaşmak Yasaktır! Aşşağıdaki Linkten Discord Sunucuma Gelebilirsiniz.`)
   .addField(`:scroll: Linkler`,`[Discord](https://discord.gg/vE4wub8) | [Website](https://www.youtube.com/channel/UCBbC9MUCQl8kDd7b07fPCCw?view_as=subscriber) | [Oyver](https://discord.gg/vE4wub8)`)
   .setFooter(`${message.author.tag} Tarafından İstendi.`, message.author.avatarURL)
 
@@ -29,7 +30,7 @@ module.exports.run = async (client, message, args) => {
         if (sayfa === 1) return;
         sayfa--;
         embed.setDescription(sayfalar[sayfa-1]);
-        embed.setFooter(`Sayfa ${sayfa} - ${sayfalar.length}`);
+        embed.setFooter(`Sayfa ${sayfa} | ${sayfalar.length}`);
         msg.edit(embed)
       })
 
@@ -37,7 +38,7 @@ module.exports.run = async (client, message, args) => {
         if (sayfa === sayfalar.length) return;
         sayfa++;
         embed.setDescription(sayfalar[sayfa-1]);
-        embed.setFooter(`Sayfa ${sayfa} - ${sayfalar.length}`);
+        embed.setFooter(`Sayfa ${sayfa} | ${sayfalar.length}`);
         msg.edit(embed)
       })
 
@@ -48,7 +49,7 @@ module.exports.run = async (client, message, args) => {
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["gelişmekteyardım","demoyardım","h","dy"],
+  aliases: ["help","emojiyardım","winvon","codework"],
   category: "admin",
   permLevel: 0
 };

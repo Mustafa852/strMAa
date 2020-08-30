@@ -13,7 +13,7 @@ module.exports = client => {
   //dnd = rahatsız etmeyin
   //online = çevrimiçi
   console.log(` `)
-  client.user.setActivity(`youtube.com/darknestr`, { type: "WATCHING"});
+  client.user.setActivity(`youtube.com/winwontr`, { type: "WATCHING"});
   //LISTENING = DİNLİYOR
   //WATCHING = İZLİYOR
   //PLAYING = OYNUYOR 
