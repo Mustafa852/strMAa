@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
 
-  let sayfalar = [':pencil: **Ana Menü**\nSayfa 2 - Anti Raid Sistemi\nSayfa 3 - Engel ve Tarama Sistemi\nSayfa 4 - Koruma Sistemleri\nSayfa 5 - Yetkili Sistemleri'+ client.commands.filter(cmd => exports.help.category === 'admin').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"), '**Anti Raid Sistemi**\n!anti-raid <aç/kapat>\n!bot-izni ver <botid>\n!bot-izni kaldır <botid>\n\n**Not:** İzin Sisteminin Çalışması İçin\nAnti-Raidi Açmalısınız! '+client.commands.filter(cmd => exports.help.category === 'util').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Engel Ve Tarama Sistemi**\n!capsengel\n!everyone-engelle\n!küfürengel\n!reklam-engel\n!reklamban\n!reklambankapat\n!reklamtara'+client.commands.filter(cmd => exports.help.category === 'photo').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Koruma Sistemi**\n!kanal-koruma\n!kanal-koruma-sıfırla\n!rolkoruma'+ client.commands.filter(cmd => exports.help.category === 'fun').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Yetkili Sistemler**\n!ban\n!kick\n!ban\nmod-log <#kanal>\nmod-log <sıfırla>','**NSFW :x:**\n'+ client.commands.filter(cmd => exports.help.category === 'nsfw').map(cmd => '\ ' + exports.help.name + '\ ').join("\n")]; 
+  let sayfalar = [':pencil: **Ana Menü**\nSayfa 2 - Anti Raid Sistemi\nSayfa 3 - Engel ve Tarama Sistemi\nSayfa 4 - Koruma Sistemleri\nSayfa 5 - Yetkili Sistemleri'+ client.commands.filter(cmd => exports.help.category === 'admin').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"), '**Anti Raid Sistemi**\n!anti-raid <aç/kapat>\n!bot-izni ver <botid>\n!bot-izni kaldır <botid>\n\n**Not:** İzin Sisteminin Çalışması İçin\nAnti-Raidi Açmalısınız! '+client.commands.filter(cmd => exports.help.category === 'util').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Engel Ve Tarama Sistemi**\n!capsengel\n!everyone-engelle\n!küfürengel\n!reklam-engel\n!reklamban\n!reklambankapat\n!reklamtara'+client.commands.filter(cmd => exports.help.category === 'photo').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Koruma Sistemi**\n!kanal-koruma\n!kanal-koruma-sıfırla\n!rolkoruma'+ client.commands.filter(cmd => exports.help.category === 'fun').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Yetkili Sistemler**\n!ban\n!kick\n!ban\n!mod-log <#kanal>\n!mod-log <sıfırla>\n!otobotmesajsilici\n!otobotmesajsilicikapat\n!sohbet-aç\n!sohbet-kapat\n!süreliban\n!sürelimute\n!sil-üye\n!sil\n!yavaş-mod <1/120>']; 
   let sayfa = 1;
 
   const embed = new Discord.RichEmbed()
@@ -16,6 +16,7 @@ module.exports.run = async (client, message, args) => {
 
     msg.react('⏪').then( r => {
       msg.react('⏩')
+      msg.react('📡')
 
       const backwardsFilter = (reaction, user) => reaction.emoji.name === '⏪' && user.id === message.author.id;
       const forwardsFilter = (reaction, user) => reaction.emoji.name === '⏩' && user.id === message.author.id;
@@ -42,7 +43,7 @@ module.exports.run = async (client, message, args) => {
     })
 
   })
-}
+  }
 module.exports.conf = {
   enabled: true,
   guildOnly: false,

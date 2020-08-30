@@ -54,7 +54,7 @@ exports.conf = {
   };
   
   exports.help = {
-    name: "mute",
+    name: "sürelimute",
     description: "Etiketlediğiniz kişiye belirttiğiniz süre kadar mute atar.",
     usage: "mute <@kullanıcı> <1sn/1dk/1sa/1g>"
   };
