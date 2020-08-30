@@ -2,13 +2,15 @@ const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json")
 module.exports.run = async (client, message, args) => {
 
-  let sayfalar = [':pencil: **Ana Menü**\nSayfa 2 - Anti Raid Sistemi\nSayfa 3 - Engel ve Tarama Sistemi\nSayfa 4 - Koruma Sistemleri\nSayfa 5 - Yetkili Sistemi'+ client.commands.filter(cmd => exports.help.category === 'admin').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"), '**Yardım Komutları**\n'+client.commands.filter(cmd => exports.help.category === 'util').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Resim Komutları**\n'+client.commands.filter(cmd => exports.help.category === 'photo').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Eğlence Komutları**\n'+ client.commands.filter(cmd => exports.help.category === 'fun').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Müzik**\nmüzik','**NSFW :x:**\n'+ client.commands.filter(cmd => exports.help.category === 'nsfw').map(cmd => '\ ' + exports.help.name + '\ ').join("\n")]; 
+  let sayfalar = [':pencil: **Ana Menü**\nSayfa 2 - Anti Raid Sistemi\nSayfa 3 - Engel ve Tarama Sistemi\nSayfa 4 - Koruma Sistemleri\nSayfa 5 - Yetkili Sistemleri'+ client.commands.filter(cmd => exports.help.category === 'admin').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"), '**Yardım Komutları**\n'+client.commands.filter(cmd => exports.help.category === 'util').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Resim Komutları**\n'+client.commands.filter(cmd => exports.help.category === 'photo').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Eğlence Komutları**\n'+ client.commands.filter(cmd => exports.help.category === 'fun').map(cmd => '\ ' + exports.help.name + '\ ').join("\n"),'**Müzik**\nmüzik','**NSFW :x:**\n'+ client.commands.filter(cmd => exports.help.category === 'nsfw').map(cmd => '\ ' + exports.help.name + '\ ').join("\n")]; 
   let sayfa = 1;
 
   const embed = new Discord.RichEmbed()
     .setColor("RANDOM")
     .setFooter(`Sayfa ${sayfa} - ${sayfalar.length}`)
     .setDescription(sayfalar[sayfa-1])
+  .addField(`:scroll: Linkler`,`[Discord](https://discord.gg/vE4wub8) | [Website](https://www.youtube.com/channel/UCBbC9MUCQl8kDd7b07fPCCw?view_as=subscriber) | [Oyver](https://discord.gg/vE4wub8)`)
+  .setFooter(`${message.author.tag} Tarafından İstendi.`, message.author.avatarURL)
 
   message.channel.send(embed).then(msg => {
 
