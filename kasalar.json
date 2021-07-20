@@ -1,0 +1,98 @@
+[
+	{
+		"isim": "Başlangıç Kasası",
+    "açıklama": "Başlangıç olarak ideal olan bir kasa.",
+		"fiyat": "101",
+    "kasaid": "1"
+	},
+	{
+		"isim": "Orta Düzey Kasa",
+    "açıklama": "Orta düzeyde olan bir kasa.",
+		"fiyat": "501",
+    "kasaid": "2"
+	},
+	{
+		"isim": "Pro Seviye Kasa",
+    "açıklama": "Pro seviye bir kasa.",
+		"fiyat": "1001",
+    "kasaid": "3"
+	},
+	{
+		"isim": "Elit Seviye Kasa",
+    "açıklama": "ELİT seviye bir kasa.",
+		"fiyat": "2001",
+    "kasaid": "4"
+	},
+	{
+		"isim": "Efsanevi Seviye Kasa",
+    "açıklama": "EFSANEVİ bir kasa dikkatli açılması önerilir.",
+		"fiyat": "3001",
+    "kasaid": "5"
+	},
+  	{
+		"isim": "BigBoy Kasası",
+    "açıklama": "BigBoy Kasası",
+		"fiyat": "5000",
+    "kasaid": "6"
+	},
+  	{
+		"isim": "KAZIK Kasası",
+    "açıklama": "KAZIK Kasası",
+		"fiyat": "10000",
+    "kasaid": "7"
+	},
+  	{
+		"isim": "ELiiiiT Kasaı",
+    "açıklama": "ELiiiiT Kasası",
+		"fiyat": "16751",
+    "kasaid": "8"
+	},
+  {
+		"isim": "EEENAYİİİİ Kasa",
+    "açıklama": "EEENAYİİİİ Kasa",
+		"fiyat": "21250",
+    "kasaid": "9"
+	},
+{
+		"isim": "POP KEK Kasası",
+    "açıklama": "POP KEK Kasası",
+		"fiyat": "50000",
+    "kasaid": "10"
+	},
+  {
+
+		"isim": "Patates Kasası",
+    "açıklama": "Patates Kasası",
+		"fiyat": "300000",
+    "kasaid": "11"
+	},
+{
+
+		"isim": "6,50 Kek Kasası",
+    "açıklama": "Patates Kasası",
+		"fiyat": "400000",
+    "kasaid": "12"
+	},
+{
+
+		"isim": "Pro Kek Kasası",
+    "açıklama": "Patates Kasası Batma ihtimali var",
+		"fiyat": "1000000",
+    "kasaid": "13"
+	} ,
+{
+
+		"isim": "Kumar Kasası(açma)",
+    "açıklama": "Kumar Kasası(açma) Batma ihtimali var",
+		"fiyat": "10000000",
+    "kasaid": "14"
+	} ,
+{
+
+		"isim": "Efkar Kasası",
+    "açıklama": "Efkar Kasası Batma ihtimali var",
+		"fiyat": "5000000",
+    "kasaid": "15"
+	} 
+
+]
