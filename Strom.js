@@ -44,7 +44,7 @@ client.on("message", message => {
     fetch(link)
       .then(() => {
         let usayi = sdb.get(`uptimesayi_${message.author.id}`);
-        if (db.get("linkler").map(z => z.url).includes(link)) return message.channel.send(new Discord.MessageEmbed() .setAuthor(message.author.username, message.author.avatarURL({format: 'png'})) .setDescription(`**Bu Link Zaten \`Hunter ・ Uptime\` Tarafından 7/24 Aktif Tutulmakta!**`) .setThumbnail(message.author.avatarURL({type: 'png'})) .setTimestamp());
+        if (db.get("linkler").map(z => z.url).includes(link)) return message.channel.send(new Discord.MessageEmbed() .setAuthor(message.author.username, message.author.avatarURL({format: 'png'})) .setDescription(`**Bu Link Zaten \`Strom ・ Uptime\` Tarafından 7/24 Aktif Tutulmakta!**`) .setThumbnail(message.author.avatarURL({type: 'png'})) .setTimestamp());
         message.delete();
         message.channel.send(new Discord.MessageEmbed() .setAuthor(message.author.username, message.author.avatarURL({format: 'png'})) .setDescription(`**Projeniz Başarıyla Sisteme Eklendi!**`) .setThumbnail(message.author.avatarURL({type: 'png'})) .setTimestamp());
         db.push("linkler", { url: link, owner: message.author.id });
@@ -79,7 +79,7 @@ client.on('message', async(message) => {
   if (message.content.toLowerCase() === 'u!davet') {
     let DavetEmbed = new Discord.MessageEmbed()
       .setAuthor(message.author.username, message.author.avatarURL())
-      .setDescription('**[Beni Sunucuna Ekle!](https://discord.com/oauth2/authorize?client_id=800117731432333332&scope=bot&permissions=40)\n[Destek Sunucuma Katıl!](https://discord.gg/7GK2m72fEW)**')
+      .setDescription('**[Beni Sunucuna Ekle!](https://discord.com/oauth2/authorize?client_id=746054144288358491&permissions=8&scope=bot)\n[Destek Sunucuma Katıl!](https://discord.gg/fr43SS2n64)**')
       .setThumbnail(message.author.avatarURL())
       .setTimestamp()
     return message.channel.send(DavetEmbed);
@@ -102,7 +102,25 @@ client.on('message', async(message,args) => {
   }
 });
 
-app.get('/', function (req,res) { res.send("` Hunter Uptime` Pinglendi!") })
+app.get('/', function (req,res) { res.send("` Strom Uptime` Pinglendi!") })
 
 app.listen(3000)
-client.login('TOKEN');
+client.login(process.env.token);
+
+
+
+
+
+client.on("message", message => {
+    if (message.channel.type === "dm") {
+        if (message.author.bot) return;
+        const dmlog = new Discord.MessageEmbed()
+         .setTitle(`${client.user.username}'a Özelden Mesaj Gönderildi!`)
+         .setColor('RANDOM')
+         .addField('Mesajı Gönderen',` \`\`\` ${message.author.tag} \`\`\` `)
+         .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
+         .addField(`Gönderilen Mesaj`, message.content)
+         .setThumbnail(message.author.avatarURL()) 
+    client.channels.cache.get("868498890356293682").send(dmlog);
+    }
+});
