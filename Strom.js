@@ -1,12 +1,3 @@
-const express = require("express")
-const app = express()
-app.get("/foo", (req, res, next) => {
-    const foo = JSON.parse(req.body.jsonString)
-})
-process.on("unhandledRejection", (reason, promise) => {})
-
-
-
 const Strom = require('discord.js');
 const client = new Strom.Client();
 const ayarlar = require('./ayarlar.json');
