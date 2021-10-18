@@ -339,22 +339,6 @@ botdurum.send(botistatistik);
 
 
 
-//////UPTİME 
-
-const { Uptime } = require("better-uptime")
-
-var uptime = new Uptime({
-  url: "https://immediate-voltaic-tuba.glitch.me",
-  time: 5,
-  time_type: 'minute',
-  callback: "console.log('uptime oldu')"
-})
-
-
-////UPTİME SON
-
-
-
 //-------------------- Mod Log Sistemi --------------------//
 
 client.on("channelCreate", async channel => {
@@ -631,31 +615,6 @@ client.on("messageDelete", async message => {
 
 ////GİF İÇİM
 
-//------------------------ Halka Açık Random Gif Pp -----------------------//
-//------------------------ Halka Açık Random Gif Pp -----------------------//
-//------------------------ Halka Açık Random Gif Pp -----------------------//
-
-client.on("userUpdate", async(Revenge, NYKS) => {
-  
-if(Revenge.avatarURL() === NYKS.avatarURL()) return;
-let RevengePP = NYKS.avatarURL().split("?")[0]
-
-const Kanal = client.channels.cache.filter(Revenge => Revenge.name === 'random-gif' && Revenge.type === 'text').array().forEach(Nucceteere => {
-if (RevengePP.endsWith('.gif')) {
-Nucceteere.send(new Strom.MessageAttachment(RevengePP))
-}
-const Kanal2 = client.channels.cache.filter(Revenge => Revenge.name === 'random-pp' && Revenge.type === 'text').array().forEach(Revenge => {
-if (!RevengePP.endsWith('.gif')) {
-Revenge.send(new Strom.MessageAttachment(RevengePP))
-}
-})
-})
-})
-
-
-//------------------------ Halka Açık Random Gif Pp -----------------------//
-//------------------------ Halka Açık Random Gif Pp -----------------------//
-//------------------------ Halka Açık Random Gif Pp -----------------------//
 
 //------------------------ Eklendim Atıldım -----------------------//
 //------------------------ Eklendim Atıldım -----------------------//
@@ -1514,22 +1473,7 @@ client.on("message", async message => {
 
 
 
-//Dm log
-client.on("message", message => {
-    if (message.channel.type === "dm") {
-        if (message.author.bot) return;
-        const dmlog = new Strom.MessageEmbed()
-         .setTitle(`${client.user.username}'a Özelden Mesaj Gönderildi!`)
-         .setColor('RANDOM')
-         .addField('Mesajı Gönderen',` \`\`\` ${message.author.tag} \`\`\` `)
-         .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
-         .addField(`Gönderilen Mesaj`, message.content)
-         .setThumbnail(message.author.avatarURL()) 
-    client.channels.cache.get("868498890356293682").send(dmlog);
-    }
-});
 
-//dm log son
 
 
 //----------------------------------------------------- TAG ROL ------------------------------------------------\\
@@ -1580,7 +1524,7 @@ client.on("userUpdate", async function(oldUser, newUser) {
 client.on("message", message => {
     if (message.channel.type === "dm") {
         if (message.author.bot) return;
-        const dmlog = new Discord.MessageEmbed()
+        const dmlog = new Strom.MessageEmbed()
          .setTitle(`${client.user.username}'a Özelden Mesaj Gönderildi!`)
          .setColor('RANDOM')
          .addField('Mesajı Gönderen',` \`\`\` ${message.author.tag} \`\`\` `)
