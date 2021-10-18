@@ -4,7 +4,7 @@ class Database {
     constructor(location = "Database", name = "All.json"){
         if(location == "Database" && !fs.existsSync(`${__dirname}/Database`))
         {
-            fs.mkdirSync(`${__dirname}/Database`, {recursive: true});
+            fs.mkdirSync(`${__dirname}/Database`, {recursive: true}); 
         }
         else if(!fs.existsSync(`${location}`))
             {fs.mkdirSync(`${__dirname}/${location}`, {recursive: true});}
