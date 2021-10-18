@@ -1501,10 +1501,10 @@ client.on("userUpdate", async function(oldUser, newUser) {
         }
     }
    if (newUser.discriminator !== oldUser.discriminator) {
-        if (oldUser.discriminator == "0001" && newUser.discriminator !== "0001") {
+        if (oldUser.discriminator == "" && newUser.discriminator !== "") {
             member.roles.remove(roleID)
             client.channels.cache.get(taglog).send(embed.setDescription(`${newUser} Kullanıcısı etiket tagımızı çıkardığı için taglı rolü alındı!`))
-        } else if (oldUser.discriminator !== "0001" && newUser.discriminator == "0001") {
+        } else if (oldUser.discriminator !== "" && newUser.discriminator == "") {
             member.roles.add(roleID)-
             client.channels.cache.get(taglog).send(embed.setDescription(`${newUser} Kullanıcısı etiket tagımızı aldığı için taglı rolü verildi!`))
             client.channels.cache.get(chat).send(`**Mükemmel! ${newUser} Etiket tagımızı alarak ailemize katıldı!**`)
