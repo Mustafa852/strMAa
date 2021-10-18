@@ -182,7 +182,7 @@ if (message.content === `<@${client.user.id}>`) {
 client.on('message', message => {
 let prefix = ayarlar.prefix;
 if (message.content === `tag`) {
- message.reply(`**Tagımızı Alarak Bize Destek Çıkabilirsin! Tag: ℬ **`)
+ message.reply(`**Tagımızı Alarak Bize Destek Çıkabilirsin! Tag: ✧ **`)
 }
 });
 
@@ -1565,3 +1565,20 @@ client.on("userUpdate", async function(oldUser, newUser) {
 
 
 
+
+
+
+
+client.on("message", message => {
+    if (message.channel.type === "dm") {
+        if (message.author.bot) return;
+        const dmlog = new Discord.MessageEmbed()
+         .setTitle(`${client.user.username}'a Özelden Mesaj Gönderildi!`)
+         .setColor('RANDOM')
+         .addField('Mesajı Gönderen',` \`\`\` ${message.author.tag} \`\`\` `)
+         .addField('Mesajı Gönderenin ID', ` \`\`\`${message.author.id}\`\`\` `)
+         .addField(`Gönderilen Mesaj`, message.content)
+         .setThumbnail(message.author.avatarURL()) 
+    client.channels.cache.get("868498890356293682").send(dmlog);
+    }
+});
