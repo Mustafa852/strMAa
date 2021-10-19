@@ -12,7 +12,7 @@ let images = [''];
 message.channel.send(new Discord.MessageEmbed().setColor('#000001').setDescription(`**Sunucu-kur Ana Menüsüne Hoş Geldin Dostum :innocent:.
 ${client.user} Kullanırken Botun Özel Rolünü rolünü en yukarıda tutunuz.**
 **
-🐝 \`!sunucu-tema\` Menüsün de neler var?\`**premium komut** \n
+🐝 \`!sunucu-tema\` Menüsün de neler var?\`\n
 
 > Public, Nitro, Oyun Gibi Sunucların Şablonları
 
@@ -20,7 +20,7 @@ ${client.user} Kullanırken Botun Özel Rolünü rolünü en yukarıda tutunuz.*
 🦋 \`s!sunucu-kur\` Menüsün de neler var?
 
 
-🦋 \`s!diğer-temalar\` Menüsün de neler var?\`**premium komut** \n
+🦋 \`s!diğer-temalar\` Menüsün de neler var?\`\n
 
 > Mute, Karantina, Ban, Toplu rol, Sayaç \`&\` Oto 
 > rol, Kısıtlamalar

@@ -10,8 +10,8 @@ const yardım = new Strom.MessageEmbed()
 .setDescription(`**Bota Oy Vermek için** [TIKLA](https://top.gg/bot/756883309270663229/vote)
 **Bota yorum atıp 5 yıldız vermeyi unutma :)** [TIKLA](https://top.gg/bot/756883309270663229)
 
-<a:mod:855390640946806784> \`${prefix}ban\`:  **Belirttiğiniz Üyeyi Sunucudan Yasaklar**\`\n
-<a:mod:855390640946806784> \`${prefix}nuke\`:  **Kanaldaki bütün mesajları siler**\`\n
+ \`${prefix}ban\`:  **Belirttiğiniz Üyeyi Sunucudan Yasaklar**\`\n
+ \`${prefix}nuke\`:  **Kanaldaki bütün mesajları siler**\`\n
 <a:mod:855390640946806784> \`${prefix}otorol\`:  **Etiketlediğiniz rolü her gelen üyeye verir**\`\n
 <a:mod:855390640946806784> \`${prefix}ototag\`:  **Etiketlediğiniz tagı her gelen üyeye verir**\`\n
 <a:mod:855390640946806784> \`${prefix}yetkilerim\`:  **Sunucudaki yetkilerinizi gösterir**\`\n
@@ -23,7 +23,7 @@ const yardım = new Strom.MessageEmbed()
 <a:mod:855390640946806784> \`${prefix}sayaç-ayarla\`:  **Sunucunuza sayaç ayarlarsınız.**\`\n
 <a:mod:855390640946806784> \`${prefix}kurallar\`:  **Sunucu için kurallar atar.**\`\n
 <a:mod:855390640946806784> \`${prefix}servericon\`:  **sunucu iconunu gösterir.**\`\n
-<a:mod:855390640946806784> \`${prefix}şablon-gönder\`:  **bize sunucu şablonu gönderir. Beğenirsek !diğer-temalar larına eklenir.**\`\n
+<a:mod:855390640946806784> \`${prefix}şablon-gönder\`:  **bize sunucu şablonu gönderir. Beğenirsek s!diğer-temalar larına eklenir.**\`\n
 <a:mod:855390640946806784> \`${prefix}rank\`:  **Seviyenizi gösterir.**\`\n
 <a:mod:855390640946806784> \`${prefix}sohbet-aç\`:  **sohbet i yazılabilir hale getirir.**\`\n
 <a:mod:855390640946806784> \`${prefix}sohbet-kapat\`:  **sohbet i yazılamaz hale getirir.**\`\n

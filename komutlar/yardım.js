@@ -28,9 +28,9 @@ exports.run = async (client, message, args) => {
   **<a:rainbow:855248569136578570> ${prefix}kasa-yardım**  \`kasa Komutlarını Gösterir.\` \n
   **<a:rainbow:855248569136578570> ${prefix}say**  \`Sunucu Bilgilerini Gösterir.\` \n
   **<a:rainbow:855248569136578570> ${prefix}yardım-sunucu-kur**\`Sunucu-kur komutlarını gösterir.\`\n
-  **<a:rainbow:855248569136578570> ${prefix}rütbe-yardım**\`rütbe sistemini gösterir. \` **premium-komut**\n
+  **<a:rainbow:855248569136578570> ${prefix}rütbe-yardım**\`rütbe sistemini gösterir. \`\n
   **<a:rainbow:855248569136578570> ${prefix}premium-satın-al**\`Nasıl premium sahibi olursunuz onu gösterir.\` \n
-  **<a:rainbow:855248569136578570> ${prefix}ekonomi-yardım**  \`Ekonomi Komutlarını Gösterir.\`**premium-komut**\n
+  **<a:rainbow:855248569136578570> ${prefix}ekonomi-yardım**  \`Ekonomi Komutlarını Gösterir.\`\n
   **<a:rainbow:855248569136578570> ${prefix}eğlence-yardım**\`Eğlence komutlarını gösterir.\` \n
   **<a:rainbow:855248569136578570> ${prefix}jail-yardım**\`jail.\` \n
 `
